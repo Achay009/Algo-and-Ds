@@ -2,14 +2,6 @@ package com.company;
 
 import java.util.*;
 
-class Pair
-{
-    // Return a map entry (key-value pair) from the specified values
-    public static <T, U> Map.Entry<T, U> of(T first, U second) {
-        return new AbstractMap.SimpleEntry<>(first, second);
-    }
-}
-
 public class BinaryTreeVerticalOrderTraversal {
     public static List<List<Integer>> verticalOrder(TreeNode root) {
         List<List<Integer>> output = new ArrayList();
@@ -22,6 +14,7 @@ public class BinaryTreeVerticalOrderTraversal {
         int column = 0;
         queue.offer(Pair.of(root, column));
 
+        //Ran Breadth First Search
         while (!queue.isEmpty()) {
             Map.Entry<TreeNode, Integer> p = queue.poll();
             root = p.getKey();
