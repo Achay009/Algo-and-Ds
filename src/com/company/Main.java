@@ -16,8 +16,23 @@ public class Main {
 //        int targetSum = 8;
 //        System.out.println(" Computing the smallest sub Array problem  = " + smallestSubArray(targetSum, input));
 
+//        MinRemoveToMakeValidParentheses.solution("lee(t(c)o)de)");
+//        System.out.println("converting string to number  ==  " + findDigits("onetwothree"));
 
-        System.out.println("converting string to number  ==  " + findDigits(""));
+//        BuildingsWithOceanView.solution(new int[]{99,9,1,33,7,8,11,6,55,4,29,8});
+        TreeNode root = new TreeNode();
+        root.data = 10;
+        root.right = new TreeNode(15) ;
+        root.right.right = new TreeNode(18);
+        root.right.left = null;
+        root.left = new TreeNode(5);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(7);
+
+
+
+//        System.out.println("Range of BST : "+ RangeSumOfBST.solution(root, 7, 15));
+        System.out.println("Vertical order of BST : " + BinaryTreeVerticalOrderTraversal.verticalOrder(root));
     }
 
     public static int findMaxSumSubArray(int[] arr, int k) {
@@ -87,15 +102,6 @@ public class Main {
             maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
         }
         return maxLength;
-    }
-
-    //Node Class for multilevel linked list
-    class Node {
-        public int val;
-        public Node prev;
-        public Node next;
-        public Node child;
-
     }
 
     ;
@@ -261,50 +267,6 @@ public class Main {
         return max;
     }
 
-    class TreeNode {
-        public int data;
-        public TreeNode left;
-        public TreeNode right;
-
-        
-
-        public TreeNode insertNode(TreeNode head, int data)
-        {
-            if (head == null){
-                head = new TreeNode();
-                head.data = data;
-                return head;
-            }
-
-            if (head.data < data){
-                head.right = insertNode(head.right, data);
-            }else{
-                head.left = insertNode(head.left, data);
-            }
-
-            return head;
-        }
-
-        public static void printTreeNode(TreeNode root)
-        {
-            if (root == null) return;
-
-            //pre-order breadth-first-search
-            if (root.left == null && root.right == null){
-                System.out.println(root.data + " ");
-                return;
-            }
-
-            if (root.left != null){
-                printTreeNode(root.left);
-            }
-
-            if (root.right != null){
-                printTreeNode(root.right);
-            }
-        }
-
-    }
 
     public static int treeSum(TreeNode root)
     {
@@ -325,34 +287,6 @@ public class Main {
         result.addAll(rightValues);
 
        return result;
-    }
-
-    public static void markIsland(int [][] grid, int i, int j, int row, int column)
-    {
-        if (i < 0 || i >= row || j < 0 || j >= column || grid[i][j] != 1) return;
-
-        grid[i][j] = 2;
-        markIsland(grid, i+1, j, row, column); //DOWN
-        markIsland(grid, i, j+1, row, column); //RIGHT
-        markIsland(grid, i-1, j, row, column); //UP
-        markIsland(grid, i, j-1, row, column); //LEFT
-    }
-
-    public static int numberOfIsland(int[][]grid)
-    {
-
-        int row = grid.length;
-        int column = grid[0].length;
-        int numberOfIsland = 0;
-        for (int i = 0; i < row; i++){
-            for (int j = 0; j < column; j++){
-                if (grid[i][j] == 1){
-                    markIsland(grid, i, j, row, column);
-                    numberOfIsland++;
-                }
-            }
-        }
-        return numberOfIsland;
     }
 
     public Node getIntersectionNode(Node headA, Node headB)
@@ -477,38 +411,7 @@ public class Main {
         return minSum;
     }
 
-    public static TreeNode balanceBST(TreeNode root)
-    {
-        if (root == null) return null;
 
-        ArrayList<Integer> list = new ArrayList<>();
-        convertTreeToList(root, list);
-        return convertListToTree(list, 0, list.size()-1);
-    }
-
-    public static void convertTreeToList(TreeNode root, ArrayList<Integer> list)
-    {
-        if (root == null) return;
-
-        convertTreeToList(root.left, list);
-        list.add(root.data);
-        convertTreeToList(root.right, list);
-    }
-
-    public static TreeNode convertListToTree(ArrayList<Integer> list, int start, int finish)
-    {
-        TreeNode root = null;
-        if (start > finish) return null;
-        if (start == finish) {
-            root.data = list.get(start);
-        }
-        int mid = start + (finish - start) / 2;
-
-        root.data = list.get(mid);
-        root.left = convertListToTree(list, start, mid - 1);
-        root.right = convertListToTree(list, mid + 1, finish);
-        return root;
-    }
 }
 
 
