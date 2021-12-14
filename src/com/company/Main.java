@@ -30,10 +30,17 @@ public class Main {
         root.left.right = new TreeNode(7);
 
 //        BreadthFirstSearch.solution(root);
+//        root.breadthFirstSearch();
+//        root.depthFirstSearch();
 
 //        System.out.println("Range of BST : "+ RangeSumOfBST.solution(root, 7, 15));
-        System.out.println("Vertical order of BST : " + BinaryTreeVerticalOrderTraversal.verticalOrder(root));
+//        System.out.println("Vertical order of BST : " + BinaryTreeVerticalOrderTraversal.verticalOrder(root));
+
+//        SubArraySumEqualsK.solution(new int[]{1,-1,1,1,-1,3}, 2);
+
+            TopKFrequentElements.solution(new int[]{1,1,1,2,2,100,33,6,6,6,7,7,7,8,8,8,8,8,8,9,9,9,9,2,5}, 2);
     }
+
 
     public static int findMaxSumSubArray(int[] arr, int k) {
         int maxValue = Integer.MIN_VALUE;

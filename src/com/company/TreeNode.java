@@ -34,15 +34,12 @@ public class TreeNode {
         return head;
     }
 
-    public static void printTreeNode(TreeNode root)
+    public void printTreeNode(TreeNode root)
     {
         if (root == null) return;
 
-        //pre-order breadth-first-search
-        if (root.left == null && root.right == null){
-            System.out.println(root.data + " ");
-            return;
-        }
+        //pre-order depth-first-search
+        System.out.print(root.data + " ");
 
         if (root.left != null){
             printTreeNode(root.left);
@@ -51,6 +48,18 @@ public class TreeNode {
         if (root.right != null){
             printTreeNode(root.right);
         }
+    }
+
+    public void breadthFirstSearch()
+    {
+        BreadthFirstSearch.solution(this);
+    }
+
+    public void depthFirstSearch()
+    {
+        System.out.print("Depth First Search : ");
+        printTreeNode(this);
+        System.out.println();
     }
 
 }
