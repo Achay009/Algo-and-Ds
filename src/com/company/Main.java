@@ -38,8 +38,14 @@ public class Main {
 
 //        SubArraySumEqualsK.solution(new int[]{1,-1,1,1,-1,3}, 2);
 
-            TopKFrequentElements.solution(new int[]{1,1,1,2,2,100,33,6,6,6,7,7,7,8,8,8,8,8,8,9,9,9,9,2,5}, 2);
+//            TopKFrequentElements.solution(new int[]{1,1,1,2,2,100,33,6,6,6,7,7,7,8,8,8,8,8,8,9,9,9,9,2,5}, 2);
+//        TwoSum.solution(new int[]{3,2,3}, 6);
+//        ProductOfArrayExceptItself.solution(new int []{1,2,3,4});
+//        GridTraveler.solution(3,3);
+//        MaximumProductSubArray.solution(new int[]{-2});
+        HowSum.solution(300, new int[]{7,14});
     }
+
 
 
     public static int findMaxSumSubArray(int[] arr, int k) {
@@ -254,25 +260,6 @@ public class Main {
         return maxSum;
     }
 
-
-    public static int bestBuySellStock(int [] prices)
-    {
-        int max = 0;
-        int buy = 0;
-        int sell = 1;
-        while(sell < prices.length){
-            if (prices[buy] > prices[sell]){
-                buy = sell;
-            }else{
-                int profit = prices[sell] - prices[buy];
-                max = Math.max(profit, max);
-            }
-
-            sell++;
-        }
-
-        return max;
-    }
 
 
     public static int treeSum(TreeNode root)
