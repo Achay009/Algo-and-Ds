@@ -20,14 +20,14 @@ public class Main {
 //        System.out.println("converting string to number  ==  " + findDigits("onetwothree"));
 
 //        BuildingsWithOceanView.solution(new int[]{99,9,1,33,7,8,11,6,55,4,29,8});
-        TreeNode root = new TreeNode();
-        root.data = 10;
-        root.right = new TreeNode(15) ;
-        root.right.right = new TreeNode(18);
-        root.right.left = null;
-        root.left = new TreeNode(5);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(7);
+//        TreeNode root = new TreeNode();
+//        root.data = 10;
+//        root.right = new TreeNode(15) ;
+//        root.right.right = new TreeNode(18);
+//        root.right.left = null;
+//        root.left = new TreeNode(5);
+//        root.left.left = new TreeNode(3);
+//        root.left.right = new TreeNode(7);
 
 //        BreadthFirstSearch.solution(root);
 //        root.breadthFirstSearch();
@@ -43,8 +43,26 @@ public class Main {
 //        ProductOfArrayExceptItself.solution(new int []{1,2,3,4});
 //        GridTraveler.solution(3,3);
 //        MaximumProductSubArray.solution(new int[]{-2});
-        HowSum.solution(300, new int[]{7,14});
+//        HowSum.solution(300, new int[]{7,14});
+
+//        int [] unSortedArray = {6,3,4,5};
+//        MergeSort.solutionMergeSort(unSortedArray, 0, unSortedArray.length-1);
+
+//        ReverseWords.solution("a good   example");
+//        HappyStrings.solution(2,2,7);
+//        SumZero.solution(9);
+//        MinDeletionsToMakeCharactersFreqUnique.solution("aaaabbbccccccggggggzzzzzzzz");
+//            NumberOfIsland.numberOfIsland(new char [][]{{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}});
+//            CinemaAllocation.solution(3, new int[][]{{1,2},{1,3},{1,8},{2,6},{3,1},{3,10}});
+//        uniqueString("somethingsomethingsomething");
+//        SignOfTheProductArray.solution(new int[]{41,65,14,80,20,10,55,58,24,56,28,86,96,10,3,84,4,41,13,32,42,43,83,78,82,70,15,-41});
+        TreeNode root = new TreeNode();
+        root.data = 0;
+        root.right = new TreeNode(3) ;
+        root.left = new TreeNode(0);
+        DistributeCoinsInABinaryTree.solution(root);
     }
+
 
 
 
@@ -151,7 +169,7 @@ public class Main {
                 child.prev = cur;
 
                 cur.child = null;
-                cur = last;
+                cur = last; // this is the icing on the cake
             } else {
                 prev = cur;
                 next = cur.next;
@@ -199,7 +217,7 @@ public class Main {
         if (left > right)
             return -1;
 
-        int mid = (left + right) / 2;
+        int mid = (int) Math.floor((left + right) / 2);
 
         if (item == a[mid]){
             return mid;
@@ -405,7 +423,46 @@ public class Main {
         return minSum;
     }
 
+//    public static void uniqueString(String s)
+//    {
+//        Set<Character>  str = new HashSet<>();
+//        str.add(s.toCharArray());
+//        int ans = s.length() - str.size();
+//        System.out.print("Minimum Deletions on a string something  : "+ans);
+//    }
 
+    public static void UniqueNUm(int [] arr)
+    {
+        int length = arr.length;
+        Set<Integer> set = new HashSet<>();
+        for (int a : arr){
+            set.add(a);
+        }
+
+        for (int i = 1; i < arr.length; i++){
+            if (!set.contains(i)){
+                System.out.println("Answer for solution is :" + i);
+            }
+        }
+
+        Arrays.sort(arr);
+        int last = arr[arr.length-1] + 1;
+        System.out.println("Answer for solution is :" + last); ;
+    }
+
+    public static void compression(String word)
+    {
+        char [] wordArray = word.toCharArray();
+        int times = 0;
+        int start = 0;
+        int follow = start;
+        while(start <= wordArray.length && follow <= wordArray.length){
+            if (wordArray[start] == wordArray[follow]){
+                times++;
+
+            }
+        }
+    }
 }
 
 
